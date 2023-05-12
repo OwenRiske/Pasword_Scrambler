@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class cryptography {
     public static String caesarShift(String password, int key){
         char[] passwordChars=password.toCharArray();
@@ -16,16 +18,9 @@ public class cryptography {
     }
 
     public static String unCaesarShift(String input){
-        char[] temp=input.toCharArray();
-        int[] save= new int[temp.length];
-        for (int i = 0; i < temp.length; i++) {
-            save[i]=temp[i];
-        }
-        int key= 101-toolBox.mostCommonNuminArray(save);
-        System.out.println(key+101);
-
-
+        int key= (int) toolBox.mostCommonCharacterInString(input)-101;
         System.out.println(key);
+
         return unCaesarShift(input,key);
 
     }

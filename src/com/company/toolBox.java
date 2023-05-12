@@ -44,7 +44,33 @@ public class toolBox {
     }
 
     public static char mostCommonCharacterInString(String input){
-        
+        ArrayList<Character> saveChar=new ArrayList();
+        ArrayList<Integer> charCount=new ArrayList();
+
+        char[] chars=input.toCharArray();
+
+        for (int i = 0; i < chars.length; i++) {
+            for (int j = 0; j < saveChar.size(); j++) {
+                if(saveChar.get(j)==chars[i]){
+                    charCount.set(j, charCount.get(j)+1);
+                }
+                if(j==saveChar.size()){
+                    saveChar.add(chars[i]);
+                    charCount.add(1);
+                }
+            }
+        }
+
+        int most=0;
+        char output=' ';
+        for (int j = 0; j < charCount.size(); j++) {
+            if(charCount.get(j)>most){
+                most=charCount.get(j);
+                output=saveChar.get(j);
+            }
+        }
+        System.out.println("hi");
+        return output;
 
     }
 }
